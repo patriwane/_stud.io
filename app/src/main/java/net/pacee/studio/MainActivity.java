@@ -1,6 +1,8 @@
 package net.pacee.studio;
 
+import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +13,7 @@ import com.google.gson.Gson;
 import net.pacee.studio.Utils.AsyncTaskLoader;
 import net.pacee.studio.Utils.CustomAdapter;
 import net.pacee.studio.model.Matiere;
+import net.pacee.studio.sync.MatiereSyncIntentService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,16 +36,16 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnM
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         AsyncTaskLoader asyncTaskLoader = new AsyncTaskLoader();
         adapter.setListener(this);
-
         asyncTaskLoader.setCallback(new AsyncTaskLoader.AsyncCallback() {
             @Override
             public void getJson(String jsonData) {
                 show(jsonData);
             }
         });
-
         asyncTaskLoader.execute(getMatieres());
 
+
+        startImmediateSync(this);
 
     }
     public void show(String txt)
@@ -51,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnM
         matiereList = Arrays.asList(gson.fromJson(txt,Matiere[].class));
         System.out.println("show:"+txt);
         adapter.setMatieres(matiereList);
-
     }
 
 
@@ -60,6 +62,15 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnM
         Intent intent = new Intent(this,InterrosActivity.class);
         intent.putExtra("interroId", matiereList.get(position));
         startActivity(intent);
+    }
 
+    /**
+     * Enregister le données venu d'internet (json)
+     * dans la base de données locale
+     * @param context le contexte
+     */
+    public static void startImmediateSync(@NonNull final Context context) {
+        Intent intentToSyncImmediately = new Intent(context, MatiereSyncIntentService.class);
+        context.startService(intentToSyncImmediately);
     }
 }
