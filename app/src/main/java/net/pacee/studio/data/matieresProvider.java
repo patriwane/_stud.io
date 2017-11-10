@@ -15,7 +15,7 @@ import android.support.annotation.Nullable;
 
 public class MatieresProvider extends ContentProvider {
 
-    public final static String CONTENT_AUTORITY = "net.pacee.studio.data";
+    public final static String CONTENT_AUTORITY = "net.pacee.studio";
     public static final int CODE_INTERRO = 100;
     public static final int CODE_INTERRO_WITH_ID = 101;
 
@@ -41,7 +41,7 @@ public class MatieresProvider extends ContentProvider {
         matcher.addURI(authority, MatieresContract.PATH_INTERRO, CODE_INTERRO);
 
         /*
-         * This URI would look something like content://com.example.android.sunshine/weather/1472214172
+         * This URI would look something like content://net.pacee.studio
          * The "/#" signifies to the UriMatcher that if PATH_WEATHER is followed by ANY number,
          * that it should return the CODE_WEATHER_WITH_DATE code
          */

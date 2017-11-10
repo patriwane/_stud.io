@@ -52,8 +52,6 @@ public class InterrosActivity extends AppCompatActivity implements CustomAdapter
 
         Bundle bundle = getIntent().getExtras();
         if(bundle!=null) {
-
-
             matiere= (Matiere) bundle.getSerializable("interroId");
             Log.i("InterrosActivity",matiere.getId());
             URL url = getInterros(Integer.parseInt(matiere.getId()));
@@ -67,9 +65,7 @@ public class InterrosActivity extends AppCompatActivity implements CustomAdapter
         System.out.println(txt);
         Gson gson = new Gson();
         interroList = Arrays.asList(gson.fromJson(txt,Interro[].class));
-
         adapter.setInterros(interroList);
-
     }
 
 

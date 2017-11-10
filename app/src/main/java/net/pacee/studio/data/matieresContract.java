@@ -28,19 +28,21 @@ public class MatieresContract {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(PATH_INTERRO)
                 .build();
-
+// todo : single couple of values
         public static final String TABLE_NAME = "matieres";
         public static final String COLUMN_NAME = "nom";
         public static final String COLUMN_IDINTERRO = "idMatiere";
 
         public static final String CREATE_STMT = "CREATE TABLE "+ TABLE_NAME +"("
-                            + MatiereEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                            + COLUMN_IDINTERRO + " TEXT NOT NULL,"
-                            + COLUMN_NAME + " TEXT"+
+                       //     + MatiereEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                            + COLUMN_IDINTERRO + " INTEGER NOT NULL,"
+                            + COLUMN_NAME + " TEXT NOT NULL,"
+                            +  " PRIMARY KEY ("+COLUMN_IDINTERRO+","+COLUMN_NAME+")"
+                            +  " ON CONFLICT IGNORE"+
                             ");";
 
 
-        public static final String UPDATE_STMT = "DROP TABLE "+ TABLE_NAME +" IF EXISTS";
+        public static final String UPDATE_STMT = "DROP TABLE IF EXISTS "+ TABLE_NAME ;
 
 
     }

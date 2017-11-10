@@ -8,6 +8,14 @@ public class Matiere implements Serializable {
     private String id;
     private String nom;
 
+    public Matiere() {
+    }
+
+    public Matiere(String id, String nom) {
+        this.id = id;
+        this.nom = nom;
+    }
+
     public String getId() {
         return id;
     }
@@ -24,4 +32,11 @@ public class Matiere implements Serializable {
         this.nom = nom;
     }
 
+    @Override
+    public String toString() {
+        return "Matiere{" +
+                "id='" + id + '\'' +
+                ", nom='" + nom + '\'' +
+                '}';
+    }
 }

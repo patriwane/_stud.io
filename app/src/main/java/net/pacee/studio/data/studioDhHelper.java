@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class StudioDhHelper extends SQLiteOpenHelper {
     public static final String DATA_NAME = "studio.db";
 
-    private static final int DATA_VERSION = 1;
+    private static final int DATA_VERSION = 4;
 
     public StudioDhHelper(Context context) {
         super(context, DATA_NAME, null, DATA_VERSION);

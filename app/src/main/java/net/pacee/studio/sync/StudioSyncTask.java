@@ -3,6 +3,7 @@ package net.pacee.studio.sync;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -36,6 +37,7 @@ public class StudioSyncTask {
             Matiere[] mat = gson.fromJson(results,Matiere[].class);
 
             ContentValues[] matieres =  matieresToContentValues(mat);
+
             if(matieres != null && matieres.length != 0)
             {
                 ContentResolver matieresResolver = ctx.getContentResolver();

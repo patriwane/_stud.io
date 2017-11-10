@@ -5,11 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.pacee.studio.MainActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Loading"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/loading_screen"/>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv_main_main"
         android:paddingBottom="8dp"
-        ></android.support.v7.widget.RecyclerView>
+        android:layout_marginLeft="16dp"
+        >
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
 

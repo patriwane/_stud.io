@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Stud.io</string>
     <string name="content_authority">net.pacee.studio.model</string>
+    <string name="service_matiere_description">Saved matieres dans la db</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

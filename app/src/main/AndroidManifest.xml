@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".InterrosActivity" />
         <activity android:name=".QuestionsActivity"></activity>
-
+        <activity android:name=".SettingsActivity"></activity>
         <receiver android:name=".widget.ListAppWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -32,6 +32,18 @@
         <service
             android:name=".widget.WidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
+        <service
+            android:name=".sync.MatiereSyncIntentService"
+            android:exported="false"
+            android:description="@string/service_matiere_description" />
+
+        <service
+            android:name=".sync.StudioJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
 
         <provider
             android:name=".data.MatieresProvider"

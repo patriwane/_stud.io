@@ -10,7 +10,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="@dimen/padding">
+    android:padding="@dimen/padding"
+    android:layout_marginLeft="16dp">
     <TextView
     tools:text="Title"
     android:layout_width="wrap_content"
